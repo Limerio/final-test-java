@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Conversations</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="p-4 w-full min-h-screen flex flex-col gap-3">
+<h1 class="text-3xl mb-4">Conversations</h1>
+<div class="overflow-x-auto">
+    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+        <thead class="bg-gray-50">
+        <tr>
+            <th class="px-4 py-2 text-left text-gray-600">Message</th>
+            <th class="px-4 py-2 text-left text-gray-600">Username</th>
+            <th class="px-4 py-2 text-left text-gray-600">Response</th>
+            <th class="px-4 py-2 text-left text-gray-600">Timestamp</th>
+        </tr>
+        </thead>
+        <tbody class="bg-white">
+        <tr th:each="conversation : ${conversations}">
+            <td class="border px-4 py-2" th:text="${conversation.message}"></td>
+            <td class="border px-4 py-2" th:text="${conversation.username}"></td>
+            <td class="border px-4 py-2" th:text="${conversation.response}"></td>
+            <td class="border px-4 py-2"
+                th:text="${#dates.format(conversation.timestampAsDate, 'dd-MM-yyyy HH:mm:ss')}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a class="p-2.5 rounded-md bg-blue-500 text-white text-center" href="/">Return to the home page</a>
+</body>
+</html>
