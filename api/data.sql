@@ -1,2 +1,16 @@
-INSERT INTO quote (text, author) VALUES ('The only way to do great work is to love what you do.', 'Steve Jobs');
-INSERT INTO quote (text, author) VALUES ('Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do.', 'Pele');
+INSERT INTO quote (id, text, author) VALUES 
+(1, 'The only way to do great work is to love what you do.', 'Steve Jobs'),
+(2, 'Success is no accident. It is hard work, perseverance, learning, studying, sacrifice and most of all, love of what you are doing or learning to do.', 'Pele'),
+(3, 'Believe you can and you''re halfway there.', 'Theodore Roosevelt'),
+(4, 'Your time is limited, don''t waste it living someone else''s life.', 'Steve Jobs'),
+(5, 'The future depends on what you do today.', 'Mahatma Gandhi'),
+(6, 'Don''t watch the clock; do what it does. Keep going.', 'Sam Levenson'),
+(7, 'The only person you are destined to become is the person you decide to be.', 'Ralph Waldo Emerson'),
+(8, 'Quality is not an act, it is a habit.', 'Aristotle'),
+(9, 'The best way to predict the future is to create it.', 'Peter Drucker'),
+(10, 'Everything you''ve ever wanted is on the other side of fear.', 'George Addair'),
+(11, 'Success is not final, failure is not fatal: it is the courage to continue that counts.', 'Winston Churchill'),
+(12, 'The only limit to our realization of tomorrow will be our doubts of today.', 'Franklin D. Roosevelt'),
+(13, 'What you do today can improve all your tomorrows.', 'Ralph Marston'),
+(14, 'The harder you work for something, the greater you''ll feel when you achieve it.', 'Anonymous'),
+(15, 'Dreams don''t work unless you do.', 'John C. Maxwell');
