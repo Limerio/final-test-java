@@ -9,10 +9,10 @@ This application consists of two Spring Boot projects:
 - Maven
 
 ## Running the Quote API
-1. Navigate to the `quote-api` directory.
+1. Navigate to the `api` directory.
 2. Run `mvn spring-boot:run` to start the API on port 8081.
 
 ## Running the Conversation App
-1. Navigate to the `conversation-app` directory.
+1. Navigate to the `web` directory.
 2. Run `mvn spring-boot:run` to start the application on port 8080.
 3. Open your browser and go to `http://localhost:8080` to access the home page.
