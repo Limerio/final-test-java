@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -25,16 +24,23 @@ public class ConversationsController {
     }
 
     @PostMapping("/submit")
-    public RedirectView submitMessage(@RequestParam String username, @RequestParam String message, Model model) {
+    public String submitMessage(@RequestParam String username, @RequestParam String message, Model model) {
         String response = restTemplate.getForObject("http://localhost:8081/api/quotes/random", String.class);
         conversationService.saveConversation(username, message, response);
         model.addAttribute("response", response);
-        return new RedirectView("/conversations");
+        return "index";
+    }
+
+    @GetMapping("/users")
+    public String users(Model model) {
+        List<String> users = conversationService.getAllUsernames();
+        model.addAttribute("users", users);
+        return "users";
     }
 
     @GetMapping("/conversations")
-    public String conversations(Model model) {
-        List<Conversation> conversations = conversationService.getAll();
+    public String conversations(Model model, @RequestParam String username) {
+        List<Conversation> conversations = conversationService.getConversationsByUsername(username);
         model.addAttribute("conversations", conversations);
         return "conversations";
     }

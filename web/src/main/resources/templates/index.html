@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Home</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
@@ -23,5 +23,8 @@
         <a class="p-2.5 rounded-md bg-green-500 text-white text-center" href="/conversations">Conversations</a>
     </div>
 </form>
+<div th:if="${response}">
+    <p th:text="${response}"></p>
+</div>
 </body>
 </html>

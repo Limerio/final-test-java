@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Usersx</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="p-4 w-full min-h-screen flex flex-col gap-3">
+<h1 class="text-3xl mb-4">Users</h1>
+<div class="overflow-x-auto">
+    <ul>
+        <li th:each="username : ${users}">
+            <a th:href="@{/conversations(username=${username})}" th:text="${username}"></a>
+        </li>
+    </ul>
+</div>
+<a class="p-2.5 rounded-md bg-blue-500 text-white text-center" href="/">Return to the home page</a>
+</body>
+</html>

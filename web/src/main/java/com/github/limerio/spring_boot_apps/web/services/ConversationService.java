@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ConversationService {
@@ -29,7 +30,16 @@ public class ConversationService {
         return conversationRepository.findByUsername(username);
     }
 
-    public List<Conversation> getAll() {
-        return conversationRepository.findAll();
+    public List<String> getAllUsernames() {
+        return conversationRepository.findAll().stream()
+                .map(Conversation::getUsername)
+                .distinct()
+                .collect(Collectors.toList());
+    }
+
+    public List<Conversation> getMessagesByUsername(String username) {
+        return conversationRepository.findAll().stream()
+                .filter(message -> message.getUsername().equalsIgnoreCase(username))
+                .collect(Collectors.toList());
     }
 }
